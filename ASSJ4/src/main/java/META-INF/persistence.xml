@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="https://jakarta.ee/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence
+                                 https://jakarta.ee/xml/ns/persistence/persistence_3_1.xsd"
+             version="3.1">
+
+    <persistence-unit name="POLYOE" transaction-type="RESOURCE_LOCAL">
+
+        <!-- TẤT CẢ ENTITY -->
+        <class>poly.com.entity.Users</class>
+        <class>poly.com.entity.Video</class>
+        <class>poly.com.entity.Favorite</class>
+        <class>poly.com.entity.Share</class>
+
+        <properties>
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="true"/>
+
+            <!-- JDBC CONNECTION -->
+            <property name="jakarta.persistence.jdbc.driver" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"/>
+            <property name="jakarta.persistence.jdbc.url"
+                      value="jdbc:sqlserver://localhost:1433;databaseName=POLYOE;encrypt=true;trustServerCertificate=true;"/>
+            <property name="jakarta.persistence.jdbc.user" value="sa"/>
+            <!-- ĐÃ SỬA MẬT KHẨU -->
+            <property name="jakarta.persistence.jdbc.password" value="123"/>
+
+            <!-- Có thể bỏ dòng này cũng được (Hibernate tự nhận SQL Server) -->
+            <property name="hibernate.dialect" value="org.hibernate.dialect.SQLServerDialect"/>
+        </properties>
+    </persistence-unit>
+</persistence>
